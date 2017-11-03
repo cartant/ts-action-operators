@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "ts-action": "^1.0.0"
+  },
+  "devDependencies": {},
+  "main": "./index.js",
+  "private": false,
+  "scripts": {},
+  "types": "./index.ts"
+}
