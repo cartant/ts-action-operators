@@ -12,7 +12,7 @@ The `ts-action-operators` package contains RxJS operators for action observables
 
 ### Why might you need it?
 
-I created the `ts-action` package because I wanted a mechanism for declaring and consuming actions that involved writing as little boilerplate as possible. And I created this package so that I could apply the TypeScript narrowing mechanisms in `ts-action` to the composition of NgRx effects and redux-observable epics.
+I created the [`ts-action`](https://github.com/cartant/ts-action) package because I wanted a mechanism for declaring and consuming actions that involved writing as little boilerplate as possible. And I created this package so that I could apply the TypeScript narrowing mechanisms in `ts-action` to the composition of NgRx effects and redux-observable epics.
 
 If you, too, want less cruft in your effects or epics, you might find this package useful.
 
