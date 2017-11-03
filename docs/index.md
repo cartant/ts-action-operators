@@ -1,4 +1,4 @@
-### Redux action operators with less TypeScript cruft.
+### Redux action operators with less TypeScript cruft
 
 Compose NgRx effects and redux-observable epics like this:
 
