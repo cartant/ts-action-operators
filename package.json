@@ -4,7 +4,7 @@
     "url": "https://github.com/cartant/ts-action-operators/issues"
   },
   "dependencies": {
-    "ts-action": "^1.0.0-rc.0"
+    "ts-action": "^1.0.0"
   },
   "description": "TypeScript action operators for NgRx and redux-observable",
   "devDependencies": {
