@@ -11,43 +11,13 @@ import { map } from "rxjs/operators/map";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
 import { AnyAction, isType } from "ts-action";
-import { Foo, Bar, Baz, Daz, Par, Rar, Woo, Zoo } from "./foobar-spec";
+import { Foo, Bar, Baz, Daz, Par, Rar } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "./ofType";
 
 describe("ofType", () => {
 
-    describe("declared actions", () => {
-
-        it("should filter actions matching a single type", observe(() => {
-            return of<AnyAction>(new Woo({ woo: 42 }), new Zoo()).pipe(
-                ofType(Woo),
-                map(action => action.payload.woo),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([42]))
-            );
-        }));
-
-        it("should filter actions matching multiple types", observe(() => {
-            return of<AnyAction>(new Woo({ woo: 42 }), new Zoo()).pipe(
-                ofType(Woo, Zoo),
-                map(action => isType(action, Woo) ? action.payload.woo : null),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([42, null]))
-            );
-        }));
-
-        it("should filter actions not matching a type", observe(() => {
-            return of<AnyAction>(new Woo({ woo: 42 })).pipe(
-                ofType(Zoo),
-                map(action => null),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([]))
-            );
-        }));
-    });
-
-    describe("generated actions with payloads", () => {
+    describe("actions with payloads", () => {
 
         it("should filter actions matching a single type", observe(() => {
             return of<AnyAction>(new Foo(), new Bar({ bar: 56 })).pipe(
@@ -77,7 +47,7 @@ describe("ofType", () => {
         }));
     });
 
-    describe("generated actions with props", () => {
+    describe("actions with props", () => {
 
         it("should filter actions matching a single type", observe(() => {
             return of<AnyAction>(new Baz(), new Daz({ daz: 56 })).pipe(
@@ -107,7 +77,7 @@ describe("ofType", () => {
         }));
     });
 
-    describe("generated actions with props using params", () => {
+    describe("actions with props using params", () => {
 
         it("should filter actions matching a single type", observe(() => {
             return of<AnyAction>(new Par(42), new Rar(56)).pipe(

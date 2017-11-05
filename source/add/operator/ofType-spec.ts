@@ -10,7 +10,7 @@
 import { expect } from "chai";
 import { Observable } from "rxjs/Observable";
 import { AnyAction } from "ts-action";
-import { Foo, Bar, Baz, Daz, Woo, Zoo } from "../../foobar-spec";
+import { Foo, Bar, Baz, Daz } from "../../foobar-spec";
 import { observe } from "../../observe-spec";
 
 import "rxjs/add/observable/of";
@@ -21,18 +21,7 @@ import "./ofType";
 
 describe("Observable.prototype.ofType", () => {
 
-    describe("declared actions", () => {
-
-        it("should filter actions matching a single type", observe(() => {
-            return Observable.of<AnyAction>(new Woo({ woo: 42 }), new Zoo())
-                .ofType(Woo)
-                .map(action => action.payload.woo)
-                .toArray()
-                .do(array => expect(array).to.deep.equal([42]));
-        }));
-    });
-
-    describe("generated actions with payloads", () => {
+    describe("actions with payloads", () => {
 
         it("should filter actions matching a single type", observe(() => {
             return Observable.of<AnyAction>(new Foo(), new Bar({ bar: 56 }))
@@ -43,7 +32,7 @@ describe("Observable.prototype.ofType", () => {
         }));
     });
 
-    describe("generated actions with props", () => {
+    describe("actions with props", () => {
 
         it("should filter actions matching a single type", observe(() => {
             return Observable.of<AnyAction>(new Baz(), new Daz({ daz: 56 }))
