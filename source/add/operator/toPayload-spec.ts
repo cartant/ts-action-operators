@@ -9,7 +9,7 @@
 
 import { expect } from "chai";
 import { Observable } from "rxjs/Observable";
-import { Action } from "ts-action";
+import { AnyAction } from "ts-action";
 import { Foo } from "../../foobar-spec";
 import { observe } from "../../observe-spec";
 
@@ -22,7 +22,7 @@ import "./toPayload";
 describe("Observable.prototype.toPayload", () => {
 
     it("should obtain the payload", observe(() => {
-        return Observable.of<Action>(new Foo())
+        return Observable.of<AnyAction>(new Foo())
             .ofType(Foo)
             .toPayload()
             .toArray()

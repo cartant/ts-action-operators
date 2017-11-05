@@ -9,7 +9,7 @@
 
 import { expect } from "chai";
 import { Observable } from "rxjs/Observable";
-import { Action } from "ts-action";
+import { AnyAction } from "ts-action";
 import { Foo, Bar, Baz, Daz, Woo, Zoo } from "../../foobar-spec";
 import { observe } from "../../observe-spec";
 
@@ -24,7 +24,7 @@ describe("Observable.prototype.ofType", () => {
     describe("declared actions", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<Action>(new Woo({ woo: 42 }), new Zoo())
+            return Observable.of<AnyAction>(new Woo({ woo: 42 }), new Zoo())
                 .ofType(Woo)
                 .map(action => action.payload.woo)
                 .toArray()
@@ -35,7 +35,7 @@ describe("Observable.prototype.ofType", () => {
     describe("generated actions with payloads", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<Action>(new Foo(), new Bar({ bar: 56 }))
+            return Observable.of<AnyAction>(new Foo(), new Bar({ bar: 56 }))
                 .ofType(Foo)
                 .map(action => action.payload.foo)
                 .toArray()
@@ -46,7 +46,7 @@ describe("Observable.prototype.ofType", () => {
     describe("generated actions with props", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<Action>(new Baz(), new Daz({ daz: 56 }))
+            return Observable.of<AnyAction>(new Baz(), new Daz({ daz: 56 }))
                 .ofType(Baz)
                 .map(action => action.baz)
                 .toArray()

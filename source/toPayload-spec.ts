@@ -9,7 +9,7 @@ import { expect } from "chai";
 import { of } from "rxjs/observable/of";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
-import { Action } from "ts-action";
+import { AnyAction } from "ts-action";
 import { Foo } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "./ofType";
@@ -18,7 +18,7 @@ import { toPayload } from "./toPayload";
 describe("toPayload", () => {
 
     it("should obtain the payload", observe(() => {
-        return of<Action>(new Foo()).pipe(
+        return of<AnyAction>(new Foo()).pipe(
             ofType(Foo),
             toPayload(),
             toArray(),
