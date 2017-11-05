@@ -20,7 +20,7 @@ describe("ofType", () => {
     describe("actions with payloads", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return of<AnyAction>(new Foo(), new Bar({ bar: 56 })).pipe(
+            return of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
                 ofType(Foo),
                 map(action => action.payload.foo),
                 toArray(),
@@ -29,7 +29,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<AnyAction>(new Foo(), new Bar({ bar: 56 })).pipe(
+            return of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
                 ofType(Foo, Bar),
                 map(action => isType(action, Foo) ? action.payload.foo : isType(action, Bar) ? action.payload.bar : null),
                 toArray(),
@@ -38,7 +38,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions not matching a type", observe(() => {
-            return of<AnyAction>(new Foo()).pipe(
+            return of<AnyAction>(new Foo({ foo: 42 })).pipe(
                 ofType(Bar),
                 map(action => action.payload.bar),
                 toArray(),
@@ -50,7 +50,7 @@ describe("ofType", () => {
     describe("actions with props", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return of<AnyAction>(new Baz(), new Daz({ daz: 56 })).pipe(
+            return of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 })).pipe(
                 ofType(Baz),
                 map(action => action.baz),
                 toArray(),
@@ -59,7 +59,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<AnyAction>(new Baz(), new Daz({ daz: 56 })).pipe(
+            return of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 })).pipe(
                 ofType(Baz, Daz),
                 map(action => isType(action, Baz) ? action.baz : isType(action, Daz) ? action.daz : null),
                 toArray(),
@@ -68,7 +68,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions not matching a type", observe(() => {
-            return of<AnyAction>(new Baz()).pipe(
+            return of<AnyAction>(new Baz({ baz: 42 })).pipe(
                 ofType(Daz),
                 map(action => action.daz),
                 toArray(),

@@ -22,7 +22,7 @@ import "./toPayload";
 describe("Observable.prototype.toPayload", () => {
 
     it("should obtain the payload", observe(() => {
-        return Observable.of<AnyAction>(new Foo())
+        return Observable.of<AnyAction>(new Foo({ foo: 42 }))
             .ofType(Foo)
             .toPayload()
             .toArray()

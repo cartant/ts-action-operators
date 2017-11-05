@@ -18,7 +18,7 @@ import { toPayload } from "./toPayload";
 describe("toPayload", () => {
 
     it("should obtain the payload", observe(() => {
-        return of<AnyAction>(new Foo()).pipe(
+        return of<AnyAction>(new Foo({ foo: 42 })).pipe(
             ofType(Foo),
             toPayload(),
             toArray(),

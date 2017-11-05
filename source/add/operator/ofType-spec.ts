@@ -24,7 +24,7 @@ describe("Observable.prototype.ofType", () => {
     describe("actions with payloads", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<AnyAction>(new Foo(), new Bar({ bar: 56 }))
+            return Observable.of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 }))
                 .ofType(Foo)
                 .map(action => action.payload.foo)
                 .toArray()
@@ -35,7 +35,7 @@ describe("Observable.prototype.ofType", () => {
     describe("actions with props", () => {
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<AnyAction>(new Baz(), new Daz({ daz: 56 }))
+            return Observable.of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 }))
                 .ofType(Baz)
                 .map(action => action.baz)
                 .toArray()
