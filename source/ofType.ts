@@ -12,14 +12,12 @@ import {
     ActionWithPayload,
     ActionWithPayloadConstructor,
     ActionWithPropsConstructor,
-    ActionWithParamsConstructor,
     AnyAction,
     AnyActionConstructor
 } from "ts-action";
 
 export function ofType<T extends string, P>(constructor: ActionWithPayloadConstructor<T, P>): (source: Observable<AnyAction>) => Observable<ActionWithPayload<T, P>>;
 export function ofType<T extends string, P extends object>(constructor: ActionWithPropsConstructor<T, P>): (source: Observable<AnyAction>) => Observable<Action<T> & P>;
-export function ofType<T extends string, P extends object, V>(constructor: ActionWithParamsConstructor<T, P, V>): (source: Observable<AnyAction>) => Observable<Action<T> & P>;
 export function ofType<T extends string>(constructor: ActionConstructor<T>): (source: Observable<AnyAction>) => Observable<Action<T>>;
 export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<AnyAction>) => Observable<AnyAction>;
 export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<AnyAction>) => Observable<AnyAction> {
