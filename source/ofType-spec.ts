@@ -11,7 +11,7 @@ import { map } from "rxjs/operators/map";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
 import { Action, isType } from "ts-action";
-import { Foo, Bar, Baz, Daz, Woo, Zoo } from "./foobar-spec";
+import { Foo, Bar, Baz, Daz, Par, Rar, Woo, Zoo } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "./ofType";
 
@@ -101,6 +101,36 @@ describe("ofType", () => {
             return of<Action>(new Baz()).pipe(
                 ofType(Daz),
                 map(action => action.daz),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+    });
+
+    describe("generated actions with props using params", () => {
+
+        it("should filter actions matching a single type", observe(() => {
+            return of<Action>(new Par(42), new Rar(56)).pipe(
+                ofType(Par),
+                map(action => action.par),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([42]))
+            );
+        }));
+
+        it("should filter actions matching multiple types", observe(() => {
+            return of<Action>(new Par(42), new Rar(56)).pipe(
+                ofType(Par, Rar),
+                map(action => isType(action, Par) ? action.par : isType(action, Rar) ? action.rar : null),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([42, 56]))
+            );
+        }));
+
+        it("should filter actions not matching a type", observe(() => {
+            return of<Action>(new Par(42)).pipe(
+                ofType(Rar),
+                map(action => action.rar),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );

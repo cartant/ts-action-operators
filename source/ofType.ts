@@ -9,21 +9,18 @@ import { filter } from "rxjs/operators/filter";
 import {
     Action,
     ActionConstructor,
-    ActionWithType,
-    ActionWithTypeConstructor,
     ActionWithPayload,
     ActionWithPayloadConstructor,
-    ActionWithDefaultPayloadConstructor,
     ActionWithPropsConstructor,
-    ActionWithDefaultPropsConstructor
+    ActionWithParamsConstructor,
+    AnyActionConstructor
 } from "ts-action";
 
-export function ofType<T extends string, P>(constructor: ActionWithDefaultPayloadConstructor<T, P>): (source: Observable<Action>) => Observable<ActionWithPayload<T, P>>;
 export function ofType<T extends string, P>(constructor: ActionWithPayloadConstructor<T, P>): (source: Observable<Action>) => Observable<ActionWithPayload<T, P>>;
-export function ofType<T extends string, P extends object>(constructor: ActionWithDefaultPropsConstructor<T, P>): (source: Observable<Action>) => Observable<ActionWithType<T> & P>;
-export function ofType<T extends string, P extends object>(constructor: ActionWithPropsConstructor<T, P>): (source: Observable<Action>) => Observable<ActionWithType<T> & P>;
-export function ofType<T extends string>(constructor: ActionWithTypeConstructor<T>): (source: Observable<Action>) => Observable<ActionWithType<T>>;
-export function ofType<T extends string>(...constructors: ActionConstructor[]): (source: Observable<Action>) => Observable<Action>;
-export function ofType<T extends string>(...constructors: ActionConstructor[]): (source: Observable<Action>) => Observable<Action> {
+export function ofType<T extends string, P extends object>(constructor: ActionWithPropsConstructor<T, P>): (source: Observable<Action>) => Observable<Action<T> & P>;
+export function ofType<T extends string, P extends object, V>(constructor: ActionWithParamsConstructor<T, P, V>): (source: Observable<Action>) => Observable<Action<T> & P>;
+export function ofType<T extends string>(constructor: ActionConstructor<T>): (source: Observable<Action>) => Observable<Action<T>>;
+export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<Action>) => Observable<Action>;
+export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<Action>) => Observable<Action> {
     return filter<Action>(action => constructors.some(constructor => action.type === constructor.type));
 }
