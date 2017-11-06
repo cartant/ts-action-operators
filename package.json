@@ -14,7 +14,7 @@
     "rimraf": "^2.6.2",
     "rxjs": "^5.5.2",
     "rxjs-tslint-rules": "^3.0.3",
-    "ts-action": "^1.0.3",
+    "ts-action": "^2.0.0",
     "ts-snippet": "^2.0.0",
     "tslib": "^1.8.0",
     "tslint": "^5.8.0",
@@ -35,7 +35,7 @@
   "optionalDependencies": {},
   "peerDependencies": {
     "rxjs": "^5.5.2",
-    "ts-action": "^1.0.3"
+    "ts-action": "^2.0.0"
   },
   "private": true,
   "repository": {
