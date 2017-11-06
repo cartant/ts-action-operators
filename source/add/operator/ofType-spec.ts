@@ -9,8 +9,8 @@
 
 import { expect } from "chai";
 import { Observable } from "rxjs/Observable";
-import { AnyAction } from "ts-action";
-import { Foo, Bar, Baz, Daz } from "../../foobar-spec";
+import { Action } from "ts-action";
+import { usingBase, usingEmpty, usingPayload, usingProps } from "../../foobar-spec";
 import { observe } from "../../observe-spec";
 
 import "rxjs/add/observable/of";
@@ -21,10 +21,41 @@ import "./ofType";
 
 describe("Observable.prototype.ofType", () => {
 
-    describe("actions with payloads", () => {
+    describe("base", () => {
+
+        const Bar = usingBase.Bar;
+        const Foo = usingBase.Foo;
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 }))
+            return Observable.of<Action<string>>(new Foo(42), new Bar(56))
+                .ofType(Foo)
+                .map(action => action.foo)
+                .toArray()
+                .do(array => expect(array).to.deep.equal([42]));
+        }));
+    });
+
+    describe("empty", () => {
+
+        const Bar = usingEmpty.Bar;
+        const Foo = usingEmpty.Foo;
+
+        it("should filter actions matching a single type", observe(() => {
+            return Observable.of<Action<string>>(new Foo(), new Bar())
+                .ofType(Foo)
+                .map(action => action.type)
+                .toArray()
+                .do(array => expect(array).to.deep.equal(["[foobar] FOO"]));
+        }));
+    });
+
+    describe("payload", () => {
+
+        const Bar = usingPayload.Bar;
+        const Foo = usingPayload.Foo;
+
+        it("should filter actions matching a single type", observe(() => {
+            return Observable.of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 }))
                 .ofType(Foo)
                 .map(action => action.payload.foo)
                 .toArray()
@@ -32,12 +63,15 @@ describe("Observable.prototype.ofType", () => {
         }));
     });
 
-    describe("actions with props", () => {
+    describe("props", () => {
+
+        const Bar = usingProps.Bar;
+        const Foo = usingProps.Foo;
 
         it("should filter actions matching a single type", observe(() => {
-            return Observable.of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 }))
-                .ofType(Baz)
-                .map(action => action.baz)
+            return Observable.of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 }))
+                .ofType(Foo)
+                .map(action => action.foo)
                 .toArray()
                 .do(array => expect(array).to.deep.equal([42]));
         }));

@@ -6,20 +6,10 @@
 
 import { Observable } from "rxjs/Observable";
 import { filter } from "rxjs/operators/filter";
-import {
-    Action,
-    ActionConstructor,
-    ActionWithPayload,
-    ActionWithPayloadConstructor,
-    ActionWithPropsConstructor,
-    AnyAction,
-    AnyActionConstructor
-} from "ts-action";
+import { Action, ActionCreator } from "ts-action";
 
-export function ofType<T extends string, P>(constructor: ActionWithPayloadConstructor<T, P>): (source: Observable<AnyAction>) => Observable<ActionWithPayload<T, P>>;
-export function ofType<T extends string, P extends object>(constructor: ActionWithPropsConstructor<T, P>): (source: Observable<AnyAction>) => Observable<Action<T> & P>;
-export function ofType<T extends string>(constructor: ActionConstructor<T>): (source: Observable<AnyAction>) => Observable<Action<T>>;
-export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<AnyAction>) => Observable<AnyAction>;
-export function ofType<T extends string>(...constructors: AnyActionConstructor[]): (source: Observable<AnyAction>) => Observable<AnyAction> {
-    return filter<AnyAction>(action => constructors.some(constructor => action.type === constructor.type));
+export function ofType<T extends string, A extends Action<string>>(creator: ActionCreator<T, A>): (source: Observable<Action<string>>) => Observable<A>;
+export function ofType<T extends string>(...creators: ActionCreator<any, any>[]): (source: Observable<Action<string>>) => Observable<Action<string>>;
+export function ofType<T extends string>(...creators: ActionCreator<any, any>[]): (source: Observable<Action<string>>) => Observable<Action<string>> {
+    return filter<Action<string>>(action => creators.some(creator => action.type === creator.type));
 }

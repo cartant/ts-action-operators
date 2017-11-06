@@ -6,8 +6,7 @@
 
 import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators/map";
-import { ActionWithPayload } from "ts-action";
 
-export function toPayload<T extends string, P>(): (source: Observable<ActionWithPayload<T, P>>) => Observable<P> {
+export function toPayload<A extends { payload: {} }>(): (source: Observable<A>) => Observable<A["payload"]> {
     return map(action => action.payload);
 }

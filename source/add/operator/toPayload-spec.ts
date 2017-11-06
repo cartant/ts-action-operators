@@ -9,8 +9,8 @@
 
 import { expect } from "chai";
 import { Observable } from "rxjs/Observable";
-import { AnyAction } from "ts-action";
-import { Foo } from "../../foobar-spec";
+import { Action } from "ts-action";
+import { usingPayload } from "../../foobar-spec";
 import { observe } from "../../observe-spec";
 
 import "rxjs/add/observable/of";
@@ -21,8 +21,11 @@ import "./toPayload";
 
 describe("Observable.prototype.toPayload", () => {
 
+    const Bar = usingPayload.Bar;
+    const Foo = usingPayload.Foo;
+
     it("should obtain the payload", observe(() => {
-        return Observable.of<AnyAction>(new Foo({ foo: 42 }))
+        return Observable.of<Action<string>>(new Foo({ foo: 42 }))
             .ofType(Foo)
             .toPayload()
             .toArray()

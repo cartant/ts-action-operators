@@ -10,17 +10,86 @@ import { of } from "rxjs/observable/of";
 import { map } from "rxjs/operators/map";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
-import { AnyAction, isType } from "ts-action";
-import { Foo, Bar, Baz, Daz } from "./foobar-spec";
+import { Action, isType } from "ts-action";
+import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "./ofType";
 
 describe("ofType", () => {
 
-    describe("actions with payloads", () => {
+    describe("base", () => {
+
+        const Bar = usingBase.Bar;
+        const Foo = usingBase.Foo;
 
         it("should filter actions matching a single type", observe(() => {
-            return of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
+                ofType(Foo),
+                map(action => action.foo),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([42]))
+            );
+        }));
+
+        it("should filter actions matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
+                ofType(Foo, Bar),
+                map(action => isType(action, Foo) ? action.foo : isType(action, Bar) ? action.bar : null),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([42, 56]))
+            );
+        }));
+
+        it("should filter actions not matching a type", observe(() => {
+            return of<Action<string>>(new Foo(42)).pipe(
+                ofType(Bar),
+                map(action => action.bar),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+    });
+
+    describe("empty", () => {
+
+        const Bar = usingEmpty.Bar;
+        const Foo = usingEmpty.Foo;
+
+        it("should filter actions matching a single type", observe(() => {
+            return of<Action<string>>(new Foo(), new Bar()).pipe(
+                ofType(Foo),
+                map(action => action.type),
+                toArray(),
+                tap(array => expect(array).to.deep.equal(["[foobar] FOO"]))
+            );
+        }));
+
+        it("should filter actions matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo(), new Bar()).pipe(
+                ofType(Foo, Bar),
+                map(action => action.type),
+                toArray(),
+                tap(array => expect(array).to.deep.equal(["[foobar] FOO", "[foobar] BAR"]))
+            );
+        }));
+
+        it("should filter actions not matching a type", observe(() => {
+            return of<Action<string>>(new Foo()).pipe(
+                ofType(Bar),
+                map(action => action.type),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+    });
+
+    describe("payload", () => {
+
+        const Bar = usingPayload.Bar;
+        const Foo = usingPayload.Foo;
+
+        it("should filter actions matching a single type", observe(() => {
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
                 ofType(Foo),
                 map(action => action.payload.foo),
                 toArray(),
@@ -29,7 +98,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<AnyAction>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
                 ofType(Foo, Bar),
                 map(action => isType(action, Foo) ? action.payload.foo : isType(action, Bar) ? action.payload.bar : null),
                 toArray(),
@@ -38,7 +107,7 @@ describe("ofType", () => {
         }));
 
         it("should filter actions not matching a type", observe(() => {
-            return of<AnyAction>(new Foo({ foo: 42 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 })).pipe(
                 ofType(Bar),
                 map(action => action.payload.bar),
                 toArray(),
@@ -47,30 +116,33 @@ describe("ofType", () => {
         }));
     });
 
-    describe("actions with props", () => {
+    describe("props", () => {
+
+        const Bar = usingProps.Bar;
+        const Foo = usingProps.Foo;
 
         it("should filter actions matching a single type", observe(() => {
-            return of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 })).pipe(
-                ofType(Baz),
-                map(action => action.baz),
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+                ofType(Foo),
+                map(action => action.foo),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([42]))
             );
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<AnyAction>(new Baz({ baz: 42 }), new Daz({ daz: 56 })).pipe(
-                ofType(Baz, Daz),
-                map(action => isType(action, Baz) ? action.baz : isType(action, Daz) ? action.daz : null),
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+                ofType(Foo, Bar),
+                map(action => isType(action, Foo) ? action.foo : isType(action, Bar) ? action.bar : null),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([42, 56]))
             );
         }));
 
         it("should filter actions not matching a type", observe(() => {
-            return of<AnyAction>(new Baz({ baz: 42 })).pipe(
-                ofType(Daz),
-                map(action => action.daz),
+            return of<Action<string>>(new Foo({ foo: 42 })).pipe(
+                ofType(Bar),
+                map(action => action.bar),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );
