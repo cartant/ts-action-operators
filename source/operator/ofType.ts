@@ -9,7 +9,7 @@ import { Action, ActionCreator } from "ts-action";
 import { ofType as higherOrder } from "../ofType";
 
 export function ofType<T extends string, A extends Action<string>>(this: Observable<Action<string>>, creator: ActionCreator<T, A>): Observable<A>;
-export function ofType<T extends string>(this: Observable<Action<string>>, ...creators: ActionCreator<any, any>[]): Observable<Action<string>>;
-export function ofType<T extends string>(this: Observable<Action<string>>, ...creators: ActionCreator<any, any>[]): Observable<Action<string>> {
-    return higherOrder<T>(...creators)(this);
+export function ofType(this: Observable<Action<string>>, ...creators: ActionCreator<string, Action<string>>[]): Observable<Action<string>>;
+export function ofType(this: Observable<Action<string>>, ...creators: ActionCreator<string, Action<string>>[]): Observable<Action<string>> {
+    return higherOrder(...creators)(this);
 }

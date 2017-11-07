@@ -9,7 +9,7 @@ import { filter } from "rxjs/operators/filter";
 import { Action, ActionCreator } from "ts-action";
 
 export function ofType<T extends string, A extends Action<string>>(creator: ActionCreator<T, A>): (source: Observable<Action<string>>) => Observable<A>;
-export function ofType<T extends string>(...creators: ActionCreator<any, any>[]): (source: Observable<Action<string>>) => Observable<Action<string>>;
-export function ofType<T extends string>(...creators: ActionCreator<any, any>[]): (source: Observable<Action<string>>) => Observable<Action<string>> {
+export function ofType(...creators: ActionCreator<string, Action<string>>[]): (source: Observable<Action<string>>) => Observable<Action<string>>;
+export function ofType(...creators: ActionCreator<string, Action<string>>[]): (source: Observable<Action<string>>) => Observable<Action<string>> {
     return filter<Action<string>>(action => creators.some(creator => action.type === creator.type));
 }
