@@ -1,3 +1,10 @@
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/cartant/ts-action-operators/compare/v3.0.0...v3.0.1) (2017-11-10)
+
+### Changes
+
+* The distribution now includes `.d.ts` files rather than `.ts` files. ([b9ca7ac](https://github.com/cartant/ts-action-operators/commit/b9ca7ac))
+
 <a name="3.0.0"></a>
 ## [3.0.0](https://github.com/cartant/ts-action-operators/compare/v2.0.2...v3.0.0) (2017-11-09)
 
