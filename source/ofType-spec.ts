@@ -13,7 +13,7 @@ import { toArray } from "rxjs/operators/toArray";
 import { Action, isType } from "ts-action";
 import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
 import { observe } from "./observe-spec";
-import { ofType } from "./ofType";
+import { ofType } from "../dist/ofType";
 
 describe("ofType", () => {
 

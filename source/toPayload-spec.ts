@@ -12,8 +12,8 @@ import { toArray } from "rxjs/operators/toArray";
 import { Action } from "ts-action";
 import { usingPayload } from "./foobar-spec";
 import { observe } from "./observe-spec";
-import { ofType } from "./ofType";
-import { toPayload } from "./toPayload";
+import { ofType } from "../dist/ofType";
+import { toPayload } from "../dist/toPayload";
 
 describe("toPayload", () => {
 

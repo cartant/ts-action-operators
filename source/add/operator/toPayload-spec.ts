@@ -16,8 +16,8 @@ import { observe } from "../../observe-spec";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/toArray";
-import "./ofType";
-import "./toPayload";
+import "../../../dist/add/operator/ofType";
+import "../../../dist/add/operator/toPayload";
 
 describe("Observable.prototype.toPayload", () => {
 
