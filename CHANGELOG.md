@@ -1,3 +1,10 @@
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/cartant/ts-action-operators/compare/v3.1.0...v3.1.1) (2018-01-27)
+
+### Fixes
+
+* Fix `types` filename in `package.json`.
+
 <a name="3.1.0"></a>
 ## [3.1.0](https://github.com/cartant/ts-action-operators/compare/v3.0.1...v3.1.0) (2017-11-10)
 
