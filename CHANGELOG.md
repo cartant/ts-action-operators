@@ -1,3 +1,10 @@
+<a name="3.2.0"></a>
+## [3.2.0](https://github.com/cartant/ts-action-operators/compare/v3.1.1...v3.2.0) (2018-01-29)
+
+### Features
+
+* **ofType**: Support narrowing when passing multiple action creators. ([e862519](https://github.com/cartant/ts-action/commit/e862519))
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/cartant/ts-action-operators/compare/v3.1.0...v3.1.1) (2018-01-27)
 
