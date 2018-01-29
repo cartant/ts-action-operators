@@ -9,7 +9,7 @@ import { of } from "rxjs/observable/of";
 import { map } from "rxjs/operators/map";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
-import { Action, isType } from "ts-action";
+import { action, Action, props, isType } from "ts-action";
 import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "../dist/ofType";
@@ -27,15 +27,6 @@ describe("ofType", () => {
                 map(action => action.foo),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([42]))
-            );
-        }));
-
-        it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
-                ofType(Foo, Bar),
-                map(action => isType(action, Foo) ? action.foo : isType(action, Bar) ? action.bar : null),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
             );
         }));
 
@@ -63,15 +54,6 @@ describe("ofType", () => {
             );
         }));
 
-        it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo(), new Bar()).pipe(
-                ofType(Foo, Bar),
-                map(action => action.type),
-                toArray(),
-                tap(array => expect(array).to.deep.equal(["[foobar] FOO", "[foobar] BAR"]))
-            );
-        }));
-
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo()).pipe(
                 ofType(Bar),
@@ -93,15 +75,6 @@ describe("ofType", () => {
                 map(action => action.payload.foo),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([42]))
-            );
-        }));
-
-        it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
-                ofType(Foo, Bar),
-                map(action => isType(action, Foo) ? action.payload.foo : isType(action, Bar) ? action.payload.bar : null),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
             );
         }));
 
@@ -129,15 +102,6 @@ describe("ofType", () => {
             );
         }));
 
-        it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
-                ofType(Foo, Bar),
-                map(action => isType(action, Foo) ? action.foo : isType(action, Bar) ? action.bar : null),
-                toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
-            );
-        }));
-
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo({ foo: 42 })).pipe(
                 ofType(Bar),
@@ -146,5 +110,46 @@ describe("ofType", () => {
                 tap(array => expect(array).to.deep.equal([]))
             );
         }));
+
+        describe("multiple creators", () => {
+
+            const Action1 = action("ACTION_1", props<{ name: string }>());
+            const Action2 = action("ACTION_2", props<{ name: string }>());
+            const Action3 = action("ACTION_3", props<{ name: string }>());
+            const Action4 = action("ACTION_4", props<{ name: string }>());
+
+            const source = of<Action<string>>(
+                new Action1({ name: "1" }),
+                new Action2({ name: "2" }),
+                new Action3({ name: "3" }),
+                new Action4({ name: "4" })
+            );
+
+            it("should filter and narrow using two actions", observe(() => {
+                return source.pipe(
+                    ofType(Action1, Action2),
+                    map(action => action.name),
+                    toArray(),
+                    tap(array => expect(array).to.deep.equal(["1", "2"]))
+                );
+            }));
+
+            it("should filter and narrow using three actions", observe(() => {
+                return source.pipe(
+                    ofType(Action1, Action2, Action3),
+                    map(action => action.name),
+                    toArray(),
+                    tap(array => expect(array).to.deep.equal(["1", "2", "3"]))
+                );
+            }));
+
+            it("should filter but not narrow using more than three actions", observe(() => {
+                return source.pipe(
+                    ofType(Action1, Action2, Action3, Action4),
+                    toArray(),
+                    tap(array => expect(array).to.have.length(4))
+                );
+            }));
+        });
     });
 });

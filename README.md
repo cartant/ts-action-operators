@@ -79,8 +79,8 @@ If only a single action creator is specified, the action's type will be narrowed
 .pipe(
   ofType(Foo, Bar),
   tap(action => {
-    // Here, the action has not been narrowed, so isType needs to be used to
-    // narrow the action.
+    // Here, the action has been narrowed to `typeof union(Foo, Bar)`.
+    // Common properties will be accessible, other will require further narrowing.
     if (isType(action, Foo)) {
       // Here, the action has been narrowed to a FOO action.
     } else if (isType(action, Bar)) {
