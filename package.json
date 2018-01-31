@@ -19,6 +19,7 @@
     "tslint": "^5.8.0",
     "typescript": "~2.6.1"
   },
+  "es2015": "./dist/esm2015/index.js",
   "homepage": "https://github.com/cartant/ts-action-operators",
   "keywords": [
     "action",
@@ -30,6 +31,7 @@
   ],
   "license": "MIT",
   "main": "./dist/index.js",
+  "module": "./dist/esm5/index.js",
   "name": "ts-action-operators",
   "optionalDependencies": {},
   "peerDependencies": {
