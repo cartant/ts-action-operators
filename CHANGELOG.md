@@ -1,3 +1,14 @@
+<a name="4.0.0"></a>
+## [4.0.0](https://github.com/cartant/ts-action-operators/compare/v3.2.0...v4.0.0) (2018-01-31)
+
+### Breaking Changes
+
+* Use `ts-action` 4.0.0.
+* The package is now distributed with CommonJS, ES5 and ES2015 files (see the [Angular Package Format](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#heading=h.k0mh3o8u5hx)). The ES5 and ES2015 files use ES modules. The entry points in the `package.json` are:
+    * `main` - CommonJS
+    * `module` - ES5 with ES modules (in the `esm5` directory)
+    * `es2015` - ES2015 (in the `esm2015` directory)
+
 <a name="3.2.0"></a>
 ## [3.2.0](https://github.com/cartant/ts-action-operators/compare/v3.1.1...v3.2.0) (2018-01-29)
 
