@@ -1,3 +1,10 @@
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/cartant/ts-action-operators/compare/v4.0.0...v4.0.1) (2018-01-31)
+
+### Fixes
+
+* Use the correct semver for the `ts-action` peer dependency.
+
 <a name="4.0.0"></a>
 ## [4.0.0](https://github.com/cartant/ts-action-operators/compare/v3.2.0...v4.0.0) (2018-01-31)
 
