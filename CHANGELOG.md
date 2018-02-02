@@ -1,3 +1,10 @@
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/cartant/ts-action-operators/compare/v5.0.0...v5.0.1) (2018-02-03)
+
+### Changes
+
+* Allow a version 5.0.0 `ts-action` peer.
+
 <a name="5.0.0"></a>
 ## [5.0.0](https://github.com/cartant/ts-action-operators/compare/v4.0.0...v5.0.0) (2018-02-02)
 
