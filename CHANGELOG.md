@@ -1,3 +1,10 @@
+<a name="5.0.0"></a>
+## [5.0.0](https://github.com/cartant/ts-action-operators/compare/v4.0.0...v5.0.0) (2018-02-02)
+
+### Breaking Changes
+
+* Removed the prototype-patching operators; use `pipe` or `let` instead. Patching `Observable.prototype` with `ofType` is pointless, as the `ofType` will be on the framework's actions observable.
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/cartant/ts-action-operators/compare/v4.0.0...v4.0.1) (2018-01-31)
 
