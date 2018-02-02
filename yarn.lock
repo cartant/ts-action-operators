@@ -7,8 +7,8 @@
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.2.tgz#f1af664769cfb50af805431c407425ed619daa21"
 
 "@types/mocha@^2.2.41":
-  version "2.2.47"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.47.tgz#30bbd880834d4af0f609025f282a69b8d4458f06"
+  version "2.2.48"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-2.2.48.tgz#3523b126a0b049482e1c3c11877460f76622ffab"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -563,8 +563,8 @@ rimraf@^2.6.2:
     glob "^7.0.5"
 
 rxjs-tslint-rules@^3.0.3:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-3.7.1.tgz#09195c8a9b7460621a4412e7f5e1d6183485d91f"
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-3.7.2.tgz#d0003be5b2a88d2100d4ea081bf30fad16872c4f"
   dependencies:
     resolve "^1.4.0"
     tslib "^1.8.0"
@@ -658,8 +658,8 @@ ts-action@^4.0.0:
   resolved "https://registry.yarnpkg.com/ts-action/-/ts-action-4.0.0.tgz#23bad5f7875c4ef5a468abc198375f140e7770f8"
 
 ts-snippet@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ts-snippet/-/ts-snippet-2.0.0.tgz#b34300b5de207bffe3f64f3fe6c42d90ccd170f4"
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ts-snippet/-/ts-snippet-2.0.1.tgz#7c00bca4b226ab5fce6c5aeb6605f454d5840c17"
 
 tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"
@@ -683,18 +683,18 @@ tslint@^5.8.0:
     tsutils "^2.12.1"
 
 tsutils@^2.12.1:
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.19.1.tgz#76d7ebdea9d7a7bf4a05f50ead3701b0168708d7"
+  version "2.20.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.20.0.tgz#303394064bc80be8ee04e10b8609ae852e9312d3"
   dependencies:
     tslib "^1.8.1"
 
 type-detect@^4.0.0:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.7.tgz#862bd2cf6058ad92799ff5a5b8cf7b6cec726198"
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
 
-typescript@~2.6.1:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
+typescript@~2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.1.tgz#bb3682c2c791ac90e7c6210b26478a8da085c359"
 
 util-deprecate@~1.0.1:
   version "1.0.2"
