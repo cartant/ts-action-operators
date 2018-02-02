@@ -42,14 +42,14 @@ const epic = actions => actions.pipe(
 );
 ```
 
-The lettable/pipeable operators are recommended, but the package also includes prototype-patching versions that can be imported and used like this:
+Using `pipe` is recommended; however, you if use a version of RxJS that does not include `pipe`, you can use `let` instead:
 
 ```ts
-import "ts-action-operators/add/operator/ofType";
-import "ts-action-operators/add/operator/toPayload";
+import { ofType, toPayload } from "ts-action-operators";
+import "rxjs/add/operator/let";
 const epic = actions => actions
-  .ofType(Foo)
-  .toPayload()
+  .let(ofType(Foo))
+  .let(toPayload())
   .do(payload => console.log(payload.foo))
   ...
 ```
