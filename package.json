@@ -36,7 +36,7 @@
   "optionalDependencies": {},
   "peerDependencies": {
     "rxjs": "^5.5.2",
-    "ts-action": "^4.0.0 || ^5.0.0"
+    "ts-action": "^5.0.0"
   },
   "private": true,
   "repository": {
