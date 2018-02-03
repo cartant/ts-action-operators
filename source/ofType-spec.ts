@@ -9,7 +9,7 @@ import { of } from "rxjs/observable/of";
 import { map } from "rxjs/operators/map";
 import { tap } from "rxjs/operators/tap";
 import { toArray } from "rxjs/operators/toArray";
-import { action, Action, props, isType } from "ts-action";
+import { Action, isType } from "ts-action";
 import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
 import { observe } from "./observe-spec";
 import { ofType } from "../dist/ofType";
@@ -18,8 +18,7 @@ describe("ofType", () => {
 
     describe("base", () => {
 
-        const Bar = usingBase.Bar;
-        const Foo = usingBase.Foo;
+        const { Bar, Baz, Foo } = usingBase;
 
         it("should filter actions matching a single type", observe(() => {
             return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
@@ -54,8 +53,7 @@ describe("ofType", () => {
 
     describe("empty", () => {
 
-        const Bar = usingEmpty.Bar;
-        const Foo = usingEmpty.Foo;
+        const { Bar, Baz, Foo } = usingEmpty;
 
         it("should filter actions matching a single type", observe(() => {
             return of<Action<string>>(new Foo(), new Bar()).pipe(
@@ -90,8 +88,7 @@ describe("ofType", () => {
 
     describe("payload", () => {
 
-        const Bar = usingPayload.Bar;
-        const Foo = usingPayload.Foo;
+        const { Bar, Baz, Foo } = usingPayload;
 
         it("should filter actions matching a single type", observe(() => {
             return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
@@ -126,8 +123,7 @@ describe("ofType", () => {
 
     describe("props", () => {
 
-        const Bar = usingProps.Bar;
-        const Foo = usingProps.Foo;
+        const { Bar, Baz, Foo } = usingProps;
 
         it("should filter actions matching a single type", observe(() => {
             return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
