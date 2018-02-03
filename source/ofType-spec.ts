@@ -43,8 +43,17 @@ describe("ofType", () => {
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo(42)).pipe(
                 ofType(Bar),
-                tap(action => expect(isType(action, Bar)).to.be.false),
+                tap(action => expect(isType(action, Bar)).to.be.true),
                 map(action => action.bar),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+
+        it("should filter actions not matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo(42)).pipe(
+                ofType({ Bar, Baz }),
+                tap(action => expect(isType(action, { Bar, Baz })).to.be.true),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );
@@ -78,8 +87,17 @@ describe("ofType", () => {
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo()).pipe(
                 ofType(Bar),
-                tap(action => expect(isType(action, Bar)).to.be.false),
+                tap(action => expect(isType(action, Bar)).to.be.true),
                 map(action => action.type),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+
+        it("should filter actions not matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo()).pipe(
+                ofType({ Bar, Baz }),
+                tap(action => expect(isType(action, { Bar, Baz })).to.be.true),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );
@@ -113,8 +131,17 @@ describe("ofType", () => {
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo({ foo: 42 })).pipe(
                 ofType(Bar),
-                tap(action => expect(isType(action, Bar)).to.be.false),
+                tap(action => expect(isType(action, Bar)).to.be.true),
                 map(action => action.payload.bar),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+
+        it("should filter actions not matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo({ foo: 42 })).pipe(
+                ofType({ Bar, Baz }),
+                tap(action => expect(isType(action, { Bar, Baz })).to.be.true),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );
@@ -148,8 +175,17 @@ describe("ofType", () => {
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(new Foo({ foo: 42 })).pipe(
                 ofType(Bar),
-                tap(action => expect(isType(action, Bar)).to.be.false),
+                tap(action => expect(isType(action, Bar)).to.be.true),
                 map(action => action.bar),
+                toArray(),
+                tap(array => expect(array).to.deep.equal([]))
+            );
+        }));
+
+        it("should filter actions not matching multiple types", observe(() => {
+            return of<Action<string>>(new Foo({ foo: 42 })).pipe(
+                ofType({ Bar, Baz }),
+                tap(action => expect(isType(action, { Bar, Baz })).to.be.true),
                 toArray(),
                 tap(array => expect(array).to.deep.equal([]))
             );
