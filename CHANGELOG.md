@@ -1,3 +1,10 @@
+<a name="6.0.0"></a>
+## [6.0.0](https://github.com/cartant/ts-action-operators/compare/v5.0.1...v6.0.0) (2018-02-03)
+
+### Breaking Changes
+
+* **ofType**: To support matching an arbitrary number of types, `ofType` can now be passed either a single action creator or an object literal of action creators, so calls like `ofType(action, Foo, Bar)` should be replaced with calls like `ofType(action, { Foo, Bar })`. Calls that specify a single action creator - like `ofType(action, Foo)` - do not need to be changed. ([f4b3d7b](https://github.com/cartant/ts-action/commit/f4b3d7b))
+
 <a name="5.0.1"></a>
 ## [5.0.1](https://github.com/cartant/ts-action-operators/compare/v5.0.0...v5.0.1) (2018-02-03)
 
