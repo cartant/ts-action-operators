@@ -77,11 +77,13 @@ If only a single action creator is specified, the action's type will be narrowed
 )
 ```
 
+If multiple action creators are specified - in an object literal - the action's type will be narrowed to a union:
+
 ```ts
 .pipe(
-  ofType(Foo, Bar),
+  ofType({ Foo, Bar }),
   tap(action => {
-    // Here, the action has been narrowed to `typeof union(Foo, Bar)`.
+    // Here, the action has been narrowed to `typeof union({ Foo, Bar })`.
     // Common properties will be accessible, other will require further narrowing.
     if (isType(action, Foo)) {
       // Here, the action has been narrowed to a FOO action.
