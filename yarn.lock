@@ -569,8 +569,8 @@ rimraf@^2.6.2:
     glob "^7.0.5"
 
 rxjs-tslint-rules@^3.0.3:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-3.15.0.tgz#ea52a096b78567c5b4195426f3f0a1f63c71d540"
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-3.16.0.tgz#6c764db2cc19a4d031c313d33949e07f896891d3"
   dependencies:
     decamelize "^2.0.0"
     resolve "^1.4.0"
@@ -672,10 +672,6 @@ ts-action@^6.0.0:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ts-action/-/ts-action-6.0.2.tgz#9451cef91faf3aad868de5406209c606ba28128e"
 
-ts-snippet@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/ts-snippet/-/ts-snippet-2.0.1.tgz#7c00bca4b226ab5fce6c5aeb6605f454d5840c17"
-
 tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
@@ -698,8 +694,8 @@ tslint@^5.8.0:
     tsutils "^2.12.1"
 
 tsutils@^2.12.1:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.24.0.tgz#a84134358e10c42039fed0a8f1548413f118aff7"
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.25.0.tgz#14d616ef59224a3c9fb7eb483e1c182b6665ae5e"
   dependencies:
     tslib "^1.8.1"
 
