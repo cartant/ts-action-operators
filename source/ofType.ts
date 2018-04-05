@@ -3,8 +3,8 @@
  * can be found in the LICENSE file at https://github.com/cartant/ts-action-operators
  */
 
-import { Observable } from "rxjs/Observable";
-import { filter } from "rxjs/operators/filter";
+import { Observable } from "rxjs";
+import { filter } from "rxjs/operators";
 import { Action, ActionCtor, Ctor } from "ts-action";
 
 export function ofType<T extends { [key: string]: ActionCtor<string, {}, Ctor<{}>> }>(ctors: T): (source: Observable<Action<string>>) => Observable<T[keyof T]["action"]>;

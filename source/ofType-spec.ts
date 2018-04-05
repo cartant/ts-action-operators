@@ -5,10 +5,8 @@
 /*tslint:disable:no-unused-expression*/
 
 import { expect } from "chai";
-import { of } from "rxjs/observable/of";
-import { map } from "rxjs/operators/map";
-import { tap } from "rxjs/operators/tap";
-import { toArray } from "rxjs/operators/toArray";
+import { of } from "rxjs";
+import { map, tap, toArray } from "rxjs/operators";
 import { Action, isType } from "ts-action";
 import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
 import { observe } from "./observe-spec";
