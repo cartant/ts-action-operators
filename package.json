@@ -38,6 +38,9 @@
     "ts-action": "^6.0.0"
   },
   "private": true,
+  "publishConfig": {
+    "tag": "rc"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cartant/ts-action-operators.git"
