@@ -1,3 +1,10 @@
+<a name="7.0.0"></a>
+## [7.0.0](https://github.com/cartant/ts-action-operators/compare/v6.0.0...v7.0.0) (2018-04-25)
+
+### Breaking Changes
+
+* Upgrade to RxJS version 6.
+
 <a name="6.0.0"></a>
 ## [6.0.0](https://github.com/cartant/ts-action-operators/compare/v5.0.1...v6.0.0) (2018-02-03)
 
