@@ -7,9 +7,9 @@
 import { expect } from "chai";
 import { of } from "rxjs";
 import { map, tap, toArray } from "rxjs/operators";
+import { observe } from "rxjs-marbles/mocha";
 import { Action, isType } from "ts-action";
 import { usingBase, usingEmpty, usingPayload, usingProps } from "./foobar-spec";
-import { observe } from "./observe-spec";
 import { ofType } from "../dist/ofType";
 
 describe("ofType", () => {
