@@ -24,8 +24,8 @@
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.4.tgz#5ca073b330d90b4066d6ce18f60d57f2084ce8ca"
 
 "@types/lodash@^4.0.0":
-  version "4.14.112"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.112.tgz#4a8d8e5716b97a1ac01fe1931ad1e4cba719de5a"
+  version "4.14.115"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.115.tgz#54d171b2ce12c058742443b5f6754760f701b8f9"
 
 "@types/mocha@^5.0.0":
   version "5.2.5"
@@ -746,7 +746,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash@^4.0.0:
+lodash@^4.17.5:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -1045,15 +1045,15 @@ rimraf@^2.6.2:
     glob "^7.0.5"
 
 rxjs-marbles@^4.1.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-4.3.0.tgz#18343705ec0e048200b56ded9c06950cafe25b8e"
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-4.3.1.tgz#b20156be06106003c0164fe75a9cab871fdf9fc4"
   dependencies:
     "@types/lodash" "^4.0.0"
-    lodash "^4.0.0"
+    lodash "^4.17.5"
 
 rxjs-tslint-rules@^4.0.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.6.0.tgz#f3ef8fafb7097b904634bed2d4fdcd61d065525c"
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.7.1.tgz#d1ea5f25ecc9727d3d5da00ce4076fc8da980be8"
   dependencies:
     "@phenomnomnominal/tsquery" "^1.0.5"
     decamelize "^2.0.0"
@@ -1266,8 +1266,8 @@ tslint@^5.8.0:
     tsutils "^2.27.2"
 
 tsutils@^2.27.2:
-  version "2.28.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.28.0.tgz#6bd71e160828f9d019b6f4e844742228f85169a1"
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
   dependencies:
     tslib "^1.8.1"
 
@@ -1275,9 +1275,9 @@ type-detect@^4.0.0:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
 
-typescript@~2.9.1:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
+typescript@~3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.0.1.tgz#43738f29585d3a87575520a4b93ab6026ef11fdb"
 
 union-value@^1.0.0:
   version "1.0.0"
