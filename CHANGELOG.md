@@ -1,3 +1,10 @@
+<a name="7.0.1"></a>
+## [7.0.1](https://github.com/cartant/ts-action-operators/compare/v7.0.0...v7.0.1) (2018-09-29)
+
+### Changes
+
+* Update dependencies to allow for multiple versions of `ts-action`. ([1f20efa](https://github.com/cartant/ts-action-operators/commit/1f20efa))
+
 <a name="7.0.0"></a>
 ## [7.0.0](https://github.com/cartant/ts-action-operators/compare/v6.0.0...v7.0.0) (2018-04-25)
 
