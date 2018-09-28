@@ -10,8 +10,8 @@ import { tap, toArray } from "rxjs/operators";
 import { observe } from "rxjs-marbles/mocha";
 import { Action } from "ts-action";
 import { usingPayload } from "./foobar-spec";
-import { ofType } from "../dist/ofType";
-import { toPayload } from "../dist/toPayload";
+import { ofType } from "./ofType";
+import { toPayload } from "./toPayload";
 
 describe("toPayload", () => {
 
