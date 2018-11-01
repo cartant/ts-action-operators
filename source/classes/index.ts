@@ -3,4 +3,5 @@
  * can be found in the LICENSE file at https://github.com/cartant/ts-action-operators
  */
 
-export * from "./functions";
+export * from "./ofType";
+export * from "./toPayload";
