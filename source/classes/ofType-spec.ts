@@ -19,7 +19,7 @@ describe("ofType", () => {
         const { Bar, Baz, Foo } = usingBase;
 
         it("should filter actions matching a single type", observe(() => {
-            return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
+            return of<Action<string>>(new Foo(42), new Bar(54)).pipe(
                 ofType(Foo),
                 tap(action => expect(isType(action, Foo)).to.be.true),
                 map(action => action.foo),
@@ -29,12 +29,12 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo(42), new Bar(56)).pipe(
+            return of<Action<string>>(new Foo(42), new Bar(54)).pipe(
                 ofType({ Foo, Bar }),
                 tap(action => expect(isType(action, { Foo, Bar })).to.be.true),
                 map(action => (action.type === Foo.type) ? action.foo : action.bar),
                 toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
+                tap(array => expect(array).to.deep.equal([42, 54]))
             );
         }));
 
@@ -107,7 +107,7 @@ describe("ofType", () => {
         const { Bar, Baz, Foo } = usingPayload;
 
         it("should filter actions matching a single type", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 54 })).pipe(
                 ofType(Foo),
                 tap(action => expect(isType(action, Foo)).to.be.true),
                 map(action => action.payload.foo),
@@ -117,12 +117,12 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 54 })).pipe(
                 ofType({ Foo, Bar }),
                 tap(action => expect(isType(action, { Foo, Bar })).to.be.true),
                 map(action => (action.type === Foo.type) ? action.payload.foo : action.payload.bar),
                 toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
+                tap(array => expect(array).to.deep.equal([42, 54]))
             );
         }));
 
@@ -151,7 +151,7 @@ describe("ofType", () => {
         const { Bar, Baz, Foo } = usingProps;
 
         it("should filter actions matching a single type", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 54 })).pipe(
                 ofType(Foo),
                 tap(action => expect(isType(action, Foo)).to.be.true),
                 map(action => action.foo),
@@ -161,12 +161,12 @@ describe("ofType", () => {
         }));
 
         it("should filter actions matching multiple types", observe(() => {
-            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 56 })).pipe(
+            return of<Action<string>>(new Foo({ foo: 42 }), new Bar({ bar: 54 })).pipe(
                 ofType({ Foo, Bar }),
                 tap(action => expect(isType(action, { Foo, Bar })).to.be.true),
                 map(action => (action.type === Foo.type) ? action.foo : action.bar),
                 toArray(),
-                tap(array => expect(array).to.deep.equal([42, 56]))
+                tap(array => expect(array).to.deep.equal([42, 54]))
             );
         }));
 
