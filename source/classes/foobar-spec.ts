@@ -3,7 +3,7 @@
  * can be found in the LICENSE file at https://github.com/cartant/ts-action-operators
  */
 
-import { action, base, empty, payload, props } from "ts-action";
+import { action, base, empty, payload, props } from "ts-action/classes";
 
 export const usingBase = {
     Bar: action("[foobar] BAR", base(class { constructor(public bar: number) {} })),

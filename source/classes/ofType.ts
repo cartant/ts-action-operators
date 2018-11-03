@@ -5,10 +5,10 @@
 
 import { Observable } from "rxjs";
 import { filter } from "rxjs/operators";
-import { Action, ActionCtor, Ctor } from "ts-action";
+import { Action, ActionCtor, Ctor } from "ts-action/classes";
 
-export function ofType<T extends { [key: string]: ActionCtor<string, {}, Ctor<{}>> }>(ctors: T): (source: Observable<Action<string>>) => Observable<T[keyof T]["action"]>;
-export function ofType<T extends ActionCtor<string, {}, Ctor<{}>>>(ctor: T): (source: Observable<Action<string>>) => Observable<T["action"]>;
+export function ofType<T extends { [key: string]: ActionCtor<string, {}, Ctor<{}>> }>(ctors: T): (source: Observable<Action<string>>) => Observable<InstanceType<T[keyof T]>>;
+export function ofType<T extends ActionCtor<string, {}, Ctor<{}>>>(ctor: T): (source: Observable<Action<string>>) => Observable<InstanceType<T>>;
 export function ofType(arg: any): (source: Observable<Action<string>>) => Observable<Action<string>> {
     if (arg.type !== undefined) {
         return filter<Action<string>>(action => action.type === arg.type);
