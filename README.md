@@ -54,6 +54,13 @@ const epic = actions => actions
   ...
 ```
 
+If you are using `ts-action` to create [class-based action creators](https://github.com/cartant/ts-action/blob/master/CLASSES.md), you will need to import the operators from the `classes` directory:
+
+```ts
+import { ofType, toPayload } from "ts-action-operators/classes";
+```
+
+
 ## API
 
 * [ofType](#ofType)
