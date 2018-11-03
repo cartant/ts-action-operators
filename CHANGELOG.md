@@ -1,3 +1,10 @@
+<a name="8.0.0"></a>
+## [8.0.0](https://github.com/cartant/ts-action-operators/compare/v7.0.1...v8.0.0) (2018-11-03)
+
+### Breaking Changes
+
+* Upgrade to `ts-action` version 8.
+
 <a name="7.0.1"></a>
 ## [7.0.1](https://github.com/cartant/ts-action-operators/compare/v7.0.0...v7.0.1) (2018-09-29)
 
