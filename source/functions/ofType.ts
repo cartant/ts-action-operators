@@ -9,7 +9,7 @@ import { Action, ActionCreator, Creator } from "ts-action";
 
 export function ofType<T extends { [key: string]: ActionCreator<string, Creator> }>(ctors: T): (source: Observable<Action<string>>) => Observable<ReturnType<T[keyof T]>>;
 export function ofType<T extends ActionCreator<string, Creator>>(ctor: T): (source: Observable<Action<string>>) => Observable<ReturnType<T>>;
-export function ofType(arg: any): (source: Observable<Action<string>>) => Observable<Action<string>> {
+export function ofType(arg: { [key: string]: ActionCreator<string, Creator> } | ActionCreator<string, Creator>): (source: Observable<Action<string>>) => Observable<Action<string>> {
     if (arg.type !== undefined) {
         return filter<Action<string>>(action => action.type === arg.type);
     }

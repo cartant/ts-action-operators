@@ -9,7 +9,7 @@ import { Action, ActionCtor, Ctor } from "ts-action/classes";
 
 export function ofType<T extends { [key: string]: ActionCtor<string, {}, Ctor<{}>> }>(ctors: T): (source: Observable<Action<string>>) => Observable<InstanceType<T[keyof T]>>;
 export function ofType<T extends ActionCtor<string, {}, Ctor<{}>>>(ctor: T): (source: Observable<Action<string>>) => Observable<InstanceType<T>>;
-export function ofType(arg: any): (source: Observable<Action<string>>) => Observable<Action<string>> {
+export function ofType(arg: { [key: string]: ActionCtor<string, {}, Ctor<{}>> } | ActionCtor<string, {}, Ctor<{}>>): (source: Observable<Action<string>>) => Observable<Action<string>> {
     if (arg.type !== undefined) {
         return filter<Action<string>>(action => action.type === arg.type);
     }
