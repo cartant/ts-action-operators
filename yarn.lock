@@ -13,9 +13,9 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
 
-"@phenomnomnominal/tsquery@^2.0.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-2.1.1.tgz#eb5e7bf0fe95c40c38b17d5f5beb2809a89871dd"
+"@phenomnomnominal/tsquery@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-3.0.0.tgz#6f2f4dbf6304ff52b12cc7a5b979f20c3794a22a"
   dependencies:
     esquery "^1.0.1"
 
@@ -1062,11 +1062,11 @@ rxjs-marbles@^4.1.0:
     "@types/lodash" "^4.0.0"
     lodash "^4.17.5"
 
-rxjs-tslint-rules@^4.0.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.10.0.tgz#8b5d0b4e6bcb5f4c313d2b104043778e8b8fdaf0"
+rxjs-tslint-rules@^4.11.0:
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.11.0.tgz#1cad7a28561ba36ed14ef53450d8a839b2f20dbe"
   dependencies:
-    "@phenomnomnominal/tsquery" "^2.0.0"
+    "@phenomnomnominal/tsquery" "^3.0.0"
     decamelize "^2.0.0"
     resolve "^1.4.0"
     tslib "^1.8.0"
