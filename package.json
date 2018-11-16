@@ -14,7 +14,7 @@
     "rimraf": "^2.6.2",
     "rxjs": "^6.0.0",
     "rxjs-marbles": "^4.1.0",
-    "rxjs-tslint-rules": "^4.0.0",
+    "rxjs-tslint-rules": "^4.11.1",
     "ts-action": "^8.0.0",
     "tslint": "^5.8.0",
     "typescript": "~3.1.1"
