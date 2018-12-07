@@ -1159,8 +1159,8 @@ source-map@^0.5.6:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
 spdx-correct@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.0.2.tgz#19bb409e91b47b1ad54159243f7312a858db3c2e"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.0.tgz#fb83e504445268f154b074e218c87c003cd31df4"
   dependencies:
     spdx-expression-parse "^3.0.0"
     spdx-license-ids "^3.0.0"
@@ -1285,8 +1285,8 @@ tsutils@^2.27.2:
     tslib "^1.8.1"
 
 tsutils@^3.0.0:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.5.1.tgz#2219e5f0ad728aef94bd6634a5b4d8ce6b2e2eea"
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.5.2.tgz#6fd3c2d5a731e83bb21b070a173ec0faf3a8f6d3"
   dependencies:
     tslib "^1.8.1"
 
@@ -1295,8 +1295,8 @@ type-detect@^4.0.0, type-detect@^4.0.5:
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
 
 typescript@~3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.1.tgz#0b7a04b8cf3868188de914d9568bd030f0c56192"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz#fe8101c46aa123f8353523ebdcf5730c2ae493e5"
 
 union-value@^1.0.0:
   version "1.0.0"
