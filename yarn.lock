@@ -1051,9 +1051,10 @@ rimraf@^2.6.2:
   dependencies:
     glob "^7.0.5"
 
-rxjs-marbles@^4.1.0:
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-4.3.5.tgz#aa98167152273071cde4d3f929bcd66de98a8341"
+rxjs-marbles@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/rxjs-marbles/-/rxjs-marbles-5.0.0.tgz#b46b4d6ed8ff62da9b5da6df1bcb423df56c72f4"
+  integrity sha512-Twr69tKSxC4ObE/afKJtSPuw+hVE5Paul8KlHhVsnOpqnSHiOd9Ff94RUx+fsCXYsnEILrf4qLsXpHlYzG4a9Q==
   dependencies:
     fast-equals "^1.6.1"
 
