@@ -35,7 +35,7 @@ The package includes operators for filtering and narrowing actions and for selec
 ```ts
 import { ofType, toPayload } from "ts-action-operators";
 const epic = actions => actions.pipe(
-  ofType(Foo),
+  ofType(foo),
   toPayload(),
   tap(payload => console.log(payload.foo)),
   ...
@@ -48,7 +48,7 @@ Using `pipe` is recommended; however, you if use a version of RxJS that does not
 import { ofType, toPayload } from "ts-action-operators";
 import "rxjs/add/operator/let";
 const epic = actions => actions
-  .let(ofType(Foo))
+  .let(ofType(foo))
   .let(toPayload())
   .do(payload => console.log(payload.foo))
   ...
@@ -76,7 +76,7 @@ If only a single action creator is specified, the action's type will be narrowed
 
 ```ts
 .pipe(
-  ofType(Foo),
+  ofType(foo),
   tap(action => {
     // Here, TypeScript has narrowed the type, so the action is strongly typed
     // and individual properties can be accessed in a type-safe manner.
@@ -88,13 +88,13 @@ If multiple action creators are specified - in an object literal - the action's 
 
 ```ts
 .pipe(
-  ofType({ Foo, Bar }),
+  ofType({ foo, bar }),
   tap(action => {
-    // Here, the action has been narrowed to `typeof union({ Foo, Bar })`.
+    // Here, the action has been narrowed to `typeof union({ foo, bar })`.
     // Common properties will be accessible, other will require further narrowing.
-    if (isType(action, Foo)) {
+    if (isType(action, foo)) {
       // Here, the action has been narrowed to a FOO action.
-    } else if (isType(action, Bar)) {
+    } else if (isType(action, bar)) {
       // Here, the action has been narrowed to a BAR action.
     }
   })
@@ -109,7 +109,7 @@ The `toPayload` operator takes no parameters. It can be applied to an obserable 
 
 ```ts
 .pipe(
-  ofType(Foo),
+  ofType(foo),
   toPayload()
   tap(payload => {
     // Here, TypeScript has narrowed the type, so the payload is strongly typed
