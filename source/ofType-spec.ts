@@ -38,16 +38,6 @@ describe("ofType", () => {
             );
         }));
 
-        it("should filter actions matching an object of multiple types", observe(() => {
-            return of<Action<string>>(foo(), bar()).pipe(
-                ofType({ foo, bar }),
-                tap(action => expect(isType(action, { foo, bar })).to.be.true),
-                map(action => action.type),
-                toArray(),
-                tap(array => expect(array).to.deep.equal(["[foobar] FOO", "[foobar] BAR"]))
-            );
-        }));
-
         it("should filter actions not matching a type", observe(() => {
             return of<Action<string>>(foo()).pipe(
                 ofType(bar),
