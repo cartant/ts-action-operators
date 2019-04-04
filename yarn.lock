@@ -1977,10 +1977,10 @@ trim-newlines@^2.0.0:
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-2.0.0.tgz#b403d0b91be50c331dfc4b82eeceb22c3de16d20"
   integrity sha1-tAPQuRvlDDMd/EuC7s6yLD3hbSA=
 
-ts-action@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/ts-action/-/ts-action-8.0.0.tgz#4cce6898bdeda537212447bef234855d1c83702b"
-  integrity sha512-gNKByCGxhU1R0TH5Zw9RwOWf7SGIxN/ENgDqj50HqWq42NtS/16A6NUyIJC82/AHFytpbefAtwc1UnuB0uR2Fw==
+ts-action@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/ts-action/-/ts-action-8.1.0.tgz#5dffbd067b68d7988860270da091a68e013a96a7"
+  integrity sha512-ZM6NNjxEQD008ZIAPMV1pMrKR6jYrqBDyCYXH6+zGMcs1jShql3H654RPt9VJUoOQ0D8lAu2JXur6arKL0INUQ==
 
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
