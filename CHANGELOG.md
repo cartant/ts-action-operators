@@ -1,11 +1,11 @@
 <a name="8.1.0"></a>
 ## [8.1.0](https://github.com/cartant/ts-action-operators/compare/v8.0.0...v8.1.0) (2019-04-04)
 
-# Features
+### Features
 
 * Support using array literals to represent mulitple action types. ([f2264cc](https://github.com/cartant/ts-action-operators/commit/f2264cc))
 
-# Changes
+### Changes
 
 * Deprecate using object literals to represent multiple action types.
 
