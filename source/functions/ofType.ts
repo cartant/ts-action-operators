@@ -9,7 +9,6 @@ import { Action, ActionCreator, Creator } from "ts-action";
 
 export function ofType<T extends ActionCreator<string, Creator>>(ctor: T): (source: Observable<Action<string>>) => Observable<ReturnType<T>>;
 export function ofType<T extends ActionCreator<string, Creator>[]>(ctors: T): (source: Observable<Action<string>>) => Observable<ReturnType<T[number]>>;
-/** @deprecated Use an array literal instead of an object literal */
 export function ofType<T extends { [key: string]: ActionCreator<string, Creator> }>(ctors: T): (source: Observable<Action<string>>) => Observable<ReturnType<T[keyof T]>>;
 export function ofType(arg:
     ActionCreator<string, Creator> |
