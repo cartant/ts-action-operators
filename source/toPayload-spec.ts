@@ -18,7 +18,7 @@ describe("toPayload", () => {
     const { bar, foo } = usingPayload;
 
     it("should obtain the payload", observe(() => {
-        return of<Action<string>>(foo({ foo: 42 })).pipe(
+        return of<Action>(foo({ foo: 42 })).pipe(
             ofType(foo),
             toPayload(),
             toArray(),

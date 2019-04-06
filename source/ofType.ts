@@ -5,16 +5,9 @@
 
 import { Observable } from "rxjs";
 import { filter } from "rxjs/operators";
-import { Action, ActionCreator, Creator } from "ts-action";
+import { Action, ActionCreator, ActionType } from "ts-action";
 
-export function ofType<T extends ActionCreator<string, Creator>>(ctor: T): (source: Observable<Action<string>>) => Observable<ReturnType<T>>;
-export function ofType<T extends ActionCreator<string, Creator>[]>(ctors: T): (source: Observable<Action<string>>) => Observable<ReturnType<T[number]>>;
-export function ofType(
-    arg: ActionCreator<string, Creator> | ActionCreator<string, Creator>[]
-): (source: Observable<Action<string>>) => Observable<Action<string>> {
-    if (Array.isArray(arg)) {
-        const types = arg.map(ctor => ctor.type);
-        return filter<Action<string>>(action => types.some(type => action.type === type));
-    }
-    return filter<Action<string>>(action => action.type === arg.type);
+export function ofType<C extends ActionCreator[]>(...creators: C): (source: Observable<Action>) => Observable<ActionType<C[number]>>;
+export function ofType(...creators: ActionCreator[]): (source: Observable<Action>) => Observable<Action> {
+    return filter<Action>(({ type }) => creators.some(creator => creator.type === type));
 }
