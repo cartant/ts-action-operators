@@ -1,3 +1,18 @@
+<a name="9.0.0"></a>
+## [9.0.0](https://github.com/cartant/ts-action-operators/compare/v8.1.0...v9.0.0) (2019-04-06)
+
+### Breaking Changes
+
+* Expressing multiple actions using array or object literals is no longer supported. Pass multiple actions as separate arguments instead.
+
+    That is, instead of this:
+
+        ofType({ foo, bar }); // or ofType([foo, bar]);
+
+    Do this:
+
+        ofType(foo, bar);
+
 <a name="8.1.0"></a>
 ## [8.1.0](https://github.com/cartant/ts-action-operators/compare/v8.0.0...v8.1.0) (2019-04-04)
 
