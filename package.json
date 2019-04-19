@@ -33,6 +33,9 @@
     "typescript"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "*.{js,ts}": ["prettier --write", "git add"]
+  },
   "main": "./dist/index.js",
   "module": "./dist/esm5/index.js",
   "name": "ts-action-operators",
