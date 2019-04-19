@@ -14,15 +14,17 @@ import { ofType } from "./ofType";
 import { toPayload } from "./toPayload";
 
 describe("toPayload", () => {
+  const { bar, foo } = usingPayload;
 
-    const { bar, foo } = usingPayload;
-
-    it("should obtain the payload", observe(() => {
-        return of<Action>(foo({ foo: 42 })).pipe(
-            ofType(foo),
-            toPayload(),
-            toArray(),
-            tap(array => expect(array).to.deep.equal([{ foo: 42 }]))
-        );
-    }));
+  it(
+    "should obtain the payload",
+    observe(() => {
+      return of<Action>(foo({ foo: 42 })).pipe(
+        ofType(foo),
+        toPayload(),
+        toArray(),
+        tap(array => expect(array).to.deep.equal([{ foo: 42 }]))
+      );
+    })
+  );
 });
