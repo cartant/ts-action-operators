@@ -1,3 +1,10 @@
+<a name="9.0.1"></a>
+## [9.0.1](https://github.com/cartant/ts-action-operators/compare/v9.0.0...v9.0.1) (2019-04-19)
+
+### Changes
+
+* Support `ts-action` v10. ([c757e8d](https://github.com/cartant/ts-action-operators/commit/c757e8d))
+
 <a name="9.0.0"></a>
 ## [9.0.0](https://github.com/cartant/ts-action-operators/compare/v8.1.0...v9.0.0) (2019-04-06)
 
