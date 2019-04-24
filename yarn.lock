@@ -2128,9 +2128,9 @@ rxjs-marbles@^5.0.0:
     fast-equals "^1.6.1"
 
 rxjs-tslint-rules@^4.0.0, rxjs-tslint-rules@^4.22.1:
-  version "4.22.1"
-  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.22.1.tgz#cdfc049d352410145b8f63b3d1a56e54f8db4395"
-  integrity sha512-rbi18cHfXxmXx7zHqNKOY+cID7VHFaogwmcLnEx3X3CKMt9R1xgWgulglSOjo0ViP27nDyEOFDdJut5VgVn4JQ==
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/rxjs-tslint-rules/-/rxjs-tslint-rules-4.23.0.tgz#e1aee3c1cd1e08ec013fe43f7008c60ce936c29f"
+  integrity sha512-8lUa9tszIT3cZjGWMGh3lYMheQJO5RxuxCn7c3rhX7IiOGAq7BX6Fu2mP/0aUC9KzmxxP47FMDULFlZnrR4Oiw==
   dependencies:
     "@phenomnomnominal/tsquery" "^3.0.0"
     decamelize "^3.0.0"
