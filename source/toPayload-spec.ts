@@ -14,7 +14,7 @@ import { ofType } from "./ofType";
 import { toPayload } from "./toPayload";
 
 describe("toPayload", () => {
-  const { bar, foo } = usingPayload;
+  const { foo } = usingPayload;
 
   it(
     "should obtain the payload",
